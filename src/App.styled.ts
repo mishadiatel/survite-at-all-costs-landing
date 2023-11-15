@@ -59,12 +59,12 @@ export const Button = styled.a`
   height: 3.75rem;
   gap: 0.8rem;
   padding: 0 1rem;
-  background: ${theme.color.orangeGradient};
-  transition: all 0.3s ease;
+  background-color: ${theme.color.orange1};
+  transition: background-color 0.3s ease;
   border-radius: 0.3rem;
   &:hover{
     cursor: pointer;
-    background: ${theme.color.white};
+    background-color: ${theme.color.white};
   }
   @media screen and (max-width: 481px) {
     font-size: 2.75rem;
