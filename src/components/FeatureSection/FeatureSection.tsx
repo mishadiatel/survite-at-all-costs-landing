@@ -1,27 +1,31 @@
 import React from 'react';
 import bg3 from '../../assets/images/bg-3.webp';
-import {Container, SectionBg, SectionDescription, SectionTitle} from '../../App.styled';
+import {SectionBg, SectionDescription, SectionTitle} from '../../App.styled';
 import {FeatureContainer, FeatureSectionBg, FeatureSectionContent} from './FeatureSection.styled';
 import FeaturesAccordion from './FeaturesAccordion';
+import {Element} from 'react-scroll';
 
 const FeatureSection = () => {
     return (
-        <SectionBg $backgroundImage={bg3}>
-            <FeatureSectionBg/>
+        <Element name={'features'}>
+            <SectionBg $backgroundImage={bg3}>
+                <FeatureSectionBg/>
 
-            <FeatureContainer>
-                {/*<EmptyPlace />*/}
-                <FeatureSectionContent>
+                <FeatureContainer>
+                    {/*<EmptyPlace />*/}
+                    <FeatureSectionContent>
 
-                    <SectionDescription style={{marginBottom: '1rem'}}>What’s so special?</SectionDescription>
-                    <SectionTitle style={{marginBottom: '1.5rem'}}>features</SectionTitle>
-                    <FeaturesAccordion />
-                </FeatureSectionContent>
+                        <SectionDescription style={{marginBottom: '1rem'}}>What’s so special?</SectionDescription>
+                        <SectionTitle style={{marginBottom: '1.5rem'}}>features</SectionTitle>
+                        <FeaturesAccordion />
+                    </FeatureSectionContent>
 
 
-            </FeatureContainer>
+                </FeatureContainer>
 
-        </SectionBg>
+            </SectionBg>
+        </Element>
+
     );
 };
 

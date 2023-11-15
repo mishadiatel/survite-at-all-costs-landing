@@ -1,7 +1,18 @@
-import styled from 'styled-components';
-import {Container, Section} from '../../App.styled';
+import styled, {keyframes} from 'styled-components';
+import {Container} from '../../App.styled';
 import {theme} from '../../utils/theme';
-import Svg from '../Svg';
+
+const movingAnimation = keyframes`
+  0%{
+    transform: translateY(0rem) scale(1);
+  }
+  80%{
+    transform: translateY(1rem) scale(1.3);
+  }
+  100%{
+    transform: translateY(0rem) scale(1);
+  }
+`
 
 export const MainBdGradient = styled.div`
   position: absolute;
@@ -50,6 +61,9 @@ export const MainSectionBottomButtonContainer = styled.div`
   flex-direction: column;
   z-index: 5;
   align-items: center;
+  & svg {
+    animation: ${movingAnimation} 2s infinite;
+  }
   &:hover {
     cursor: pointer;
     & ${MainSectionBottomText} {

@@ -14,34 +14,39 @@ import {Button, ButtonText, SectionBg, SectionDescription, SectionTitle, Vertica
 import Svg from '../Svg';
 import {theme} from '../../utils/theme';
 import useBackgroundChange from '../../hooks/useBackgroundChange';
+import {Element, Link} from 'react-scroll';
+import {scrollOptions} from '../../utils/scrollOptions';
 
 const MainSection = () => {
     const bgArray = [bg1, bg2, bg3, bg4];
     const background = useBackgroundChange(bgArray);
 
     return (
+        <Element name={'main'} >
+            <SectionBg $backgroundImage={background}>
+                <MainBdGradient/>
+                <MainContainer>
+                    <SectionTitle $center={true} style={{marginBottom: '1rem'}}>SURVIVE AT ALL COSTS</SectionTitle>
+                    <SectionDescription $center={true} style={{marginBottom: '1rem'}}>Experience new social battle royale
+                        game</SectionDescription>
+                    <Button href={'https://store.steampowered.com/app/1372880/The_Day_Before/'}>
+                        <ButtonText>Buy Now on Steam</ButtonText>
+                        <VerticalDivider/>
+                        <ButtonText>$14.99</ButtonText>
+                    </Button>
+                    <MainSectionBottom>
+                        <Link to={'about'} {...scrollOptions}>
+                            <MainSectionBottomButtonContainer>
+                                <MainSectionBottomText>The story</MainSectionBottomText>
+                                <Svg name={'arrow-down'} fill={theme.color.white} height={'1rem'} width={'2rem'}/>
+                            </MainSectionBottomButtonContainer>
+                        </Link>
+                    </MainSectionBottom>
+                </MainContainer>
 
-        <SectionBg $backgroundImage={background}>
-            <MainBdGradient/>
-            <MainContainer>
-                <SectionTitle $center={true} style={{marginBottom: '1rem'}}>SURVIVE AT ALL COSTS</SectionTitle>
-                <SectionDescription $center={true} style={{marginBottom: '1rem'}}>Experience new social battle royale
-                    game</SectionDescription>
-                <Button>
-                    <ButtonText>Buy Now on Steam</ButtonText>
-                    <VerticalDivider/>
-                    <ButtonText>$14.99</ButtonText>
-                </Button>
-                <MainSectionBottom>
-                    <MainSectionBottomButtonContainer>
-                        <MainSectionBottomText>The story</MainSectionBottomText>
-                        <Svg name={'arrow-down'} fill={theme.color.white} height={'1rem'} width={'2rem'}/>
-                    </MainSectionBottomButtonContainer>
+            </SectionBg>
+        </Element>
 
-                </MainSectionBottom>
-            </MainContainer>
-
-        </SectionBg>
 
 
     );

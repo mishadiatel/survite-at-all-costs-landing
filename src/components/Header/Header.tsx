@@ -13,6 +13,8 @@ import logo from '../../assets/images/logo.png';
 import Svg from '../Svg';
 import {theme} from '../../utils/theme';
 import LanguageSelect from './LanguageSelect';
+import {Link} from 'react-scroll';
+import {scrollOptions} from '../../utils/scrollOptions';
 
 const Header: React.FC = () => {
     const [show, setShow] = useState('top');
@@ -50,33 +52,46 @@ const Header: React.FC = () => {
     }, [lastScrollY]);
 
     const blockScroll = () => {
-        document.body.style.overflow = !openBurgerMenu ? 'hidden' : 'visible'
-    }
+        document.body.style.overflow = !openBurgerMenu ? 'hidden' : 'visible';
+    };
     const toggleBurgerMenu = () => {
         setOpenBurgerMenu(prevState => !prevState);
-        openBurgerMenu && setShow('show')
-        blockScroll()
-    }
-
+        openBurgerMenu && setShow('show');
+        blockScroll();
+    };
     const content = screenWidth > 800 ?
         (
             <>
                 <HeaderLogo src={logo}/>
                 <NavBar>
-                    <NavItem>MAIN</NavItem>
-                    <NavItem>about</NavItem>
-                    <NavItem>game features</NavItem>
-                    <NavItem>System requirements</NavItem>
-                    <NavItem>quotes</NavItem>
+                    <Link to={'main'} {...scrollOptions}>
+                        <NavItem>MAIN</NavItem>
+                    </Link>
+                    <Link to={'about'} {...scrollOptions}>
+                        <NavItem>about</NavItem>
+                    </Link>
+
+                    <Link to={'features'} {...scrollOptions}>
+                        <NavItem>game features</NavItem>
+                    </Link>
+
+                    <Link to={'requirements'} {...scrollOptions}>
+                        <NavItem>System requirements</NavItem>
+                    </Link>
+
+                    <Link to={'quotes'} {...scrollOptions}>
+                        <NavItem>quotes</NavItem>
+                    </Link>
+
                 </NavBar>
                 <HeaderRight>
                     <LanguageSelect/>
-                    <a href="#">
+                    <a href="https://www.xbox.com">
                         <Svg name={'xbox-logo'} fill={theme.color.orange1}
                              height={'2rem'} width={'2rem'}
                              hoverColor={theme.color.white}/>
                     </a>
-                    <a href="#">
+                    <a href="'https://store.steampowered.com/app/1372880/The_Day_Before/">
                         <Svg name={'steam-logo'} fill={theme.color.orange1}
                              height={'2rem'} width={'2rem'}
                              hoverColor={theme.color.white}/>
@@ -88,18 +103,29 @@ const Header: React.FC = () => {
             <>
                 <HeaderLogo src={logo}/>
                 <NavBar className={openBurgerMenu ? 'openMenu' : 'closeMenu'}>
-                    <NavItem onClick={toggleBurgerMenu}>MAIN</NavItem>
-                    <NavItem onClick={toggleBurgerMenu}>about</NavItem>
-                    <NavItem onClick={toggleBurgerMenu}>game features</NavItem>
-                    <NavItem onClick={toggleBurgerMenu}>System requirements</NavItem>
-                    <NavItem onClick={toggleBurgerMenu}>quotes</NavItem>
+                    <Link to={'main'} {...scrollOptions}>
+                        <NavItem onClick={toggleBurgerMenu}>MAIN</NavItem>
+                    </Link>
+                    <Link to={'about'} {...scrollOptions}>
+                        <NavItem onClick={toggleBurgerMenu}>about</NavItem>
+                    </Link>
+                    <Link to={'features'} {...scrollOptions}>
+                        <NavItem onClick={toggleBurgerMenu}>game features</NavItem>
+                    </Link>
+                    <Link to={'requirements'} {...scrollOptions}>
+                        <NavItem onClick={toggleBurgerMenu}>System requirements</NavItem>
+                    </Link>
+                    <Link to={'quotes'} {...scrollOptions}>
+                        <NavItem onClick={toggleBurgerMenu}>quotes</NavItem>
+                    </Link>
+
                     <LogosMobileContainer>
-                        <a href="#" onClick={toggleBurgerMenu}>
+                        <a href="https://www.xbox.com" onClick={toggleBurgerMenu}>
                             <Svg name={'xbox-logo'} fill={theme.color.orange1}
                                  height={'2rem'} width={'2rem'}
                                  hoverColor={theme.color.white}/>
                         </a>
-                        <a href="#" onClick={toggleBurgerMenu}>
+                        <a href="'https://store.steampowered.com/app/1372880/The_Day_Before/" onClick={toggleBurgerMenu}>
                             <Svg name={'steam-logo'} fill={theme.color.orange1}
                                  height={'2rem'} width={'2rem'}
                                  hoverColor={theme.color.white}/>

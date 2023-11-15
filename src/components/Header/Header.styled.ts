@@ -64,7 +64,7 @@ export const Burger = styled.div`
   z-index: 1000;
 `
 
-export const NavItem = styled.a`
+export const NavItem = styled.span`
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;

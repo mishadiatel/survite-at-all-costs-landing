@@ -7,6 +7,7 @@ import evanphoto from '../../assets/images/evan.jpg';
 import jadaphoto from '../../assets/images/jada.jpg';
 import aaronphoto from '../../assets/images/aaron.jpg';
 import QuoteItem from './QuoteItem';
+import {Element} from 'react-scroll';
 
 const quotesArray = [
     {
@@ -40,31 +41,32 @@ const quotesArray = [
 
 const QuotesSection = () => {
     return (
-        <SectionBg style={{
-            // transform: 'scale(1.1)',
-        }} $backgroundImage={bg5}>
-            <QuotesSectionBg/>
-            <QuotesContainer>
-                <QuotesSectionContent>
-                    <SectionDescription style={{marginBottom: '1rem'}}>What people think?</SectionDescription>
-                    <SectionTitle>Press quotes</SectionTitle>
-                    <SectionText style={{marginBottom: '2rem'}}>Our goal is to create a product and service that you’re
-                        satisfied with and use it every
-                        day. This is why we’re constantly working on our services to make it better every day and really
-                        listen to what our users has to say.</SectionText>
-                    <Button>
-                        <ButtonText>Read more testimonials</ButtonText>
-                    </Button>
-                </QuotesSectionContent>
-                <QuotesSectionBody>
-                    {quotesArray.map((quote, numberel) => (
-                        <QuoteItem key={quote.id} {...quote} hasMarginLeft={numberel % 2 === 0}/>
-                    ))}
-                </QuotesSectionBody>
+        <Element name={'quotes'}>
+            <SectionBg $backgroundImage={bg5}>
+                <QuotesSectionBg/>
+                <QuotesContainer>
+                    <QuotesSectionContent>
+                        <SectionDescription style={{marginBottom: '1rem'}}>What people think?</SectionDescription>
+                        <SectionTitle>Press quotes</SectionTitle>
+                        <SectionText style={{marginBottom: '2rem'}}>Our goal is to create a product and service that you’re
+                            satisfied with and use it every
+                            day. This is why we’re constantly working on our services to make it better every day and really
+                            listen to what our users has to say.</SectionText>
+                        <Button href={'https://steamcommunity.com/app/1372880/discussions/'}>
+                            <ButtonText>Read more testimonials</ButtonText>
+                        </Button>
+                    </QuotesSectionContent>
+                    <QuotesSectionBody>
+                        {quotesArray.map((quote, numberel) => (
+                            <QuoteItem key={quote.id} {...quote} hasMarginLeft={numberel % 2 === 0}/>
+                        ))}
+                    </QuotesSectionBody>
 
-            </QuotesContainer>
+                </QuotesContainer>
 
-        </SectionBg>
+            </SectionBg>
+        </Element>
+
     );
 };
 
