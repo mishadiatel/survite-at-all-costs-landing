@@ -6,11 +6,13 @@ import RequirementsSection from './components/Requirements/Requirements';
 import QuotesSection from './components/QuotesSection/QuotesSection';
 import SubscribeSection from './components/SubscrideSection/SubscribeSection';
 import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
 const App: React.FC = () => {
 
     return (
         <>
+            <Header />
             <MainSection/>
             <AboutSection/>
             <FeatureSection/>

@@ -17,7 +17,7 @@ const Svg: React.FC<SvgProps> = ({name, fill, height, width, hoverColor}) => {
         setColor(fill)
     }
     return (
-        <svg height={height} width={width} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
+        <svg style={{transition: 'all 0.3s ease'}} height={height} width={width} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
             <use height={height} width={width} xlinkHref={`${sprite}#${name}`} fill={color} style={{transition: 'fill 0.3s ease'}}></use>
         </svg>
     );
