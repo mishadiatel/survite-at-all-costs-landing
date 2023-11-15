@@ -95,9 +95,7 @@ export const HorisontalDivider = styled.div`
 
 export const SectionBg = styled(Section)<{ $backgroundImage: string }>`
   position: relative;
-  //justify-content: center;
-  //align-items: center;
-  //flex-direction: column;
+  transition: background-image 0.5s ease;
   ${props =>
     props.$backgroundImage &&
     `background-image: url(${props.$backgroundImage});
