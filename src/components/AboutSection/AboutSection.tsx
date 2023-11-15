@@ -1,23 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import bg1 from '../../assets/images/bg-1.webp';
 import bg2 from '../../assets/images/bg-2.webp';
-import bg3 from '../../assets/images/bg-3.webp';
 import bg4 from '../../assets/images/bg-4.webp';
 import {SectionBg, SectionDescription, SectionText, SectionTitle} from '../../App.styled';
 import {AboutContainer, AboutSectionBg, AboutSectionContent, AboutSectionSwiper} from './AboutSection.styled';
 import useBackgroundChange from '../../hooks/useBackgroundChange';
 
 const AboutSection = () => {
-    // const [bgIndex, setBgIndex] = useState<number>(0);
     const bgArray = [bg4, bg1, bg2];
     const background = useBackgroundChange(bgArray);
-    // useEffect(() => {
-    //     const changeBackgroundImage = () => {
-    //         setBgIndex((prevIndex) => (prevIndex + 1) % bgArray.length);
-    //     };
-    //     const intervalId = setInterval(changeBackgroundImage, 30000);
-    //     return () => clearInterval(intervalId);
-    // }, []);
 
     return (
         <SectionBg $backgroundImage={background}>

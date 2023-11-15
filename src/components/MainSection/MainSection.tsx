@@ -18,15 +18,6 @@ import useBackgroundChange from '../../hooks/useBackgroundChange';
 const MainSection = () => {
     const bgArray = [bg1, bg2, bg3, bg4];
     const background = useBackgroundChange(bgArray);
-    // const [bgIndex, setBgIndex] = useState<number>(0);
-    // useEffect(() => {
-    //     const changeBackgroundImage = () => {
-    //         setBgIndex((prevIndex) => (prevIndex + 1) % bgArray.length);
-    //     };
-    //     const intervalId = setInterval(changeBackgroundImage, 30000);
-    //     return () => clearInterval(intervalId);
-    // }, []);
-
 
     return (
 
