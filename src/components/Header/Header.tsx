@@ -15,8 +15,10 @@ import {theme} from '../../utils/theme';
 import LanguageSelect from './LanguageSelect';
 import {Link} from 'react-scroll';
 import {scrollOptions} from '../../utils/scrollOptions';
+import {useTranslation} from 'react-i18next';
 
 const Header: React.FC = () => {
+    const {t} = useTranslation()
     const [show, setShow] = useState('top');
     const [lastScrollY, setLastScrollY] = useState(0);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -65,22 +67,23 @@ const Header: React.FC = () => {
                 <HeaderLogo src={logo}/>
                 <NavBar>
                     <Link to={'main'} {...scrollOptions}>
-                        <NavItem>MAIN</NavItem>
+                        <NavItem>{t('navItemMain')}</NavItem>
+
                     </Link>
                     <Link to={'about'} {...scrollOptions}>
-                        <NavItem>about</NavItem>
+                        <NavItem>{t('navItemAbout')}</NavItem>
                     </Link>
 
                     <Link to={'features'} {...scrollOptions}>
-                        <NavItem>game features</NavItem>
+                        <NavItem>{t('navItemFeatures')}</NavItem>
                     </Link>
 
                     <Link to={'requirements'} {...scrollOptions}>
-                        <NavItem>System requirements</NavItem>
+                        <NavItem>{t('navItemRequirements')}</NavItem>
                     </Link>
 
                     <Link to={'quotes'} {...scrollOptions}>
-                        <NavItem>quotes</NavItem>
+                        <NavItem>{t('navItemQuotes')}</NavItem>
                     </Link>
 
                 </NavBar>
@@ -104,19 +107,19 @@ const Header: React.FC = () => {
                 <HeaderLogo src={logo}/>
                 <NavBar className={openBurgerMenu ? 'openMenu' : 'closeMenu'}>
                     <Link to={'main'} {...scrollOptions}>
-                        <NavItem onClick={toggleBurgerMenu}>MAIN</NavItem>
+                        <NavItem onClick={toggleBurgerMenu}>{t('navItemMain')}</NavItem>
                     </Link>
                     <Link to={'about'} {...scrollOptions}>
-                        <NavItem onClick={toggleBurgerMenu}>about</NavItem>
+                        <NavItem onClick={toggleBurgerMenu}>{t('navItemAbout')}</NavItem>
                     </Link>
                     <Link to={'features'} {...scrollOptions}>
-                        <NavItem onClick={toggleBurgerMenu}>game features</NavItem>
+                        <NavItem onClick={toggleBurgerMenu}>{t('navItemFeatures')}</NavItem>
                     </Link>
                     <Link to={'requirements'} {...scrollOptions}>
-                        <NavItem onClick={toggleBurgerMenu}>System requirements</NavItem>
+                        <NavItem onClick={toggleBurgerMenu}>{t('navItemRequirements')}</NavItem>
                     </Link>
                     <Link to={'quotes'} {...scrollOptions}>
-                        <NavItem onClick={toggleBurgerMenu}>quotes</NavItem>
+                        <NavItem onClick={toggleBurgerMenu}>{t('navItemQuotes')}</NavItem>
                     </Link>
 
                     <LogosMobileContainer>

@@ -17,8 +17,10 @@ import Svg from '../Svg';
 import {theme} from '../../utils/theme';
 import {Link} from 'react-scroll';
 import {scrollOptions} from '../../utils/scrollOptions';
+import {useTranslation} from 'react-i18next';
 
 const Footer = () => {
+    const {t} = useTranslation()
 
     return (
 
@@ -27,19 +29,19 @@ const Footer = () => {
                 <FooterLogo src={logo} alt={'logo'}/>
                 <FooterNavItems>
                     <Link to={'main'} {...scrollOptions} >
-                        <FooterNavItem>MAIN</FooterNavItem>
+                        <FooterNavItem>{t('navItemMain')}</FooterNavItem>
                     </Link>
                     <Link to={'about'} {...scrollOptions} >
-                        <FooterNavItem>about</FooterNavItem>
+                        <FooterNavItem>{t('navItemAbout')}</FooterNavItem>
                     </Link>
                     <Link to={'features'} {...scrollOptions} >
-                        <FooterNavItem>game features</FooterNavItem>
+                        <FooterNavItem>{t('navItemFeatures')}</FooterNavItem>
                     </Link>
                     <Link to={'requirements'} {...scrollOptions} >
-                        <FooterNavItem>System requirements</FooterNavItem>
+                        <FooterNavItem>{t('navItemRequirements')}</FooterNavItem>
                     </Link>
                     <Link to={'quotes'} {...scrollOptions} >
-                        <FooterNavItem>quotes</FooterNavItem>
+                        <FooterNavItem>{t('navItemQuotes')}</FooterNavItem>
                     </Link>
 
                 </FooterNavItems>

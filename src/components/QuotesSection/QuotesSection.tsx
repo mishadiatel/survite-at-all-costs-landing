@@ -8,6 +8,7 @@ import jadaphoto from '../../assets/images/jada.jpg';
 import aaronphoto from '../../assets/images/aaron.jpg';
 import QuoteItem from './QuoteItem';
 import {Element} from 'react-scroll';
+import {useTranslation} from 'react-i18next';
 
 const quotesArray = [
     {
@@ -40,20 +41,19 @@ const quotesArray = [
 ];
 
 const QuotesSection = () => {
+    const {t} = useTranslation();
     return (
         <Element name={'quotes'}>
             <SectionBg $backgroundImage={bg5}>
                 <QuotesSectionBg/>
                 <QuotesContainer>
                     <QuotesSectionContent>
-                        <SectionDescription style={{marginBottom: '1rem'}}>What people think?</SectionDescription>
-                        <SectionTitle>Press quotes</SectionTitle>
-                        <SectionText style={{marginBottom: '2rem'}}>Our goal is to create a product and service that you’re
-                            satisfied with and use it every
-                            day. This is why we’re constantly working on our services to make it better every day and really
-                            listen to what our users has to say.</SectionText>
+                        <SectionDescription
+                            style={{marginBottom: '1rem'}}>{t('quoteSectionDescription')}</SectionDescription>
+                        <SectionTitle>{t('quoteSectionTitle')}</SectionTitle>
+                        <SectionText style={{marginBottom: '2rem'}}>{t('quoteSectionText')}</SectionText>
                         <Button href={'https://steamcommunity.com/app/1372880/discussions/'}>
-                            <ButtonText>Read more testimonials</ButtonText>
+                            <ButtonText>{t('quoteSectionButtonText')}</ButtonText>
                         </Button>
                     </QuotesSectionContent>
                     <QuotesSectionBody>

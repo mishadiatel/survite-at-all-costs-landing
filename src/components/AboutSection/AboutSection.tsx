@@ -9,9 +9,11 @@ import useBackgroundChange from '../../hooks/useBackgroundChange';
 import {Element} from 'react-scroll';
 
 import ImageSwiper from './Swiper/Swiper';
+import {useTranslation} from 'react-i18next';
 
 
 const AboutSection: React.FC = () => {
+    const {t} = useTranslation();
     const bgArray = [bg4, bg1, bg3, bg2];
     const background = useBackgroundChange(bgArray);
 
@@ -21,13 +23,10 @@ const AboutSection: React.FC = () => {
                 <AboutSectionBg/>
                 <AboutContainer>
                     <AboutSectionContent>
-                        <SectionDescription style={{marginBottom: '1rem'}}>What is SOS?</SectionDescription>
-                        <SectionTitle>social battle royale game</SectionTitle>
-                        <SectionText>Our goal is to create a product and service that you’re satisfied with and use it
-                            every
-                            day. This is why we’re constantly working on our services to make it better every day and
-                            really
-                            listen to what our users has to say.</SectionText>
+                        <SectionDescription
+                            style={{marginBottom: '1rem'}}>{t('aboutSectionDescription')}</SectionDescription>
+                        <SectionTitle>{t('aboutSectionTitle')}</SectionTitle>
+                        <SectionText>{t('aboutSectionText')}</SectionText>
                     </AboutSectionContent>
                     <AboutSectionSwiper>
                         <ImageSwiper data={bgArray}/>
