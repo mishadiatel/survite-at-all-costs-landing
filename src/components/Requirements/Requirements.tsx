@@ -10,27 +10,29 @@ import {
 } from './Requirements.styled';
 import RequirementItem from './RequirementItem';
 import {Element} from 'react-scroll';
+import {useTranslation} from 'react-i18next';
 
 const RequirementsSection = () => {
+    const {t} = useTranslation();
     return (
-        <Element name={'requirements'} >
+        <Element name={'requirements'}>
             <RequirementsBg $backgroundImage={bg4}>
                 <RequirementsSectionBg/>
                 <RequirementsHeading>
-                    <SectionDescription $center={true} style={{marginBottom: '1rem'}}>Can My Computer Run this
-                        game?</SectionDescription>
-                    <SectionTitle $center={true} style={{marginBottom: '1.5rem'}}>system requirements</SectionTitle>
+                    <SectionDescription $center={true}
+                                        style={{marginBottom: '1rem'}}>{t('requirementsSectionDescription')}</SectionDescription>
+                    <SectionTitle $center={true}
+                                  style={{marginBottom: '1.5rem'}}>{t('requirementsSectionTitle')}</SectionTitle>
                 </RequirementsHeading>
 
                 <RequirementsContainer>
                     <RequirementsSectionContent>
-                        <RequirementItem heading={'OS:'} body={'Windows 7 64-bit only (No OSX support at this time)'}/>
-                        <RequirementItem heading={'PROCESSOR:'}
-                                         body={`Intel Core 2 Duo @ 2.4 GHZ or AMD Athlon X2 @ 2.8 GHZ`}/>
-                        <RequirementItem heading={'MEMORY:'} body={'8 GB RAM'}/>
-                        <RequirementItem heading={'storage:'} body={'8 GB available space'}/>
-                        <RequirementItem heading={'GRAPHICS:'}
-                                         body={`NVIDIA GeForce GTX 660 2GB or AMD Radeon HD 7850 2GB DirectX11 (Shader Model 5)`} isLast={true}/>
+                        <RequirementItem heading={t('reqItem1Name')} body={t('reqItem1Body')}/>
+                        <RequirementItem heading={t('reqItem2Name')} body={t('reqItem2Body')}/>
+                        <RequirementItem heading={t('reqItem3Name')} body={t('reqItem3Body')}/>
+                        <RequirementItem heading={t('reqItem4Name')} body={t('reqItem4Body')}/>
+                        <RequirementItem heading={t('reqItem5Name')} body={t('reqItem5Body')}
+                                         isLast={true}/>
                     </RequirementsSectionContent>
                     {/*<EmptyPlace/>*/}
 

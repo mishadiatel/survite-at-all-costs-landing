@@ -2,13 +2,23 @@ import React, {useState} from 'react';
 import {LanguageItem, LanguageName, LanguagesContainer, LanguageSelectButton} from './Header.styled';
 import Svg from '../Svg';
 import {theme} from '../../utils/theme';
+import {useTranslation} from 'react-i18next';
+import {languageList} from '../../locales/i18n';
 
 const LanguageSelect = () => {
-    const languages = ['rus', 'fra', 'deu'];
+    const { i18n} = useTranslation();
+    const languages = languageList;
     const [showLanguages, setShowLanguages] = useState(false);
-    const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
+    const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
     const handleShowLanguages = () => setShowLanguages(true);
     const handleHideLanguages = () => setShowLanguages(false);
+
+    const changeLanguageHandler = (language: string) => {
+        setCurrentLanguage(language)
+        i18n.changeLanguage(language);
+        localStorage.setItem('lng', language)
+    }
+
     return (
         <LanguageSelectButton onMouseMove={handleShowLanguages}
                               onMouseLeave={handleHideLanguages}
@@ -17,9 +27,9 @@ const LanguageSelect = () => {
             <Svg name={'arrow-down'} fill={theme.color.white} height={'1rem'} width={'1rem'}
                  hoverColor={theme.color.orange1}/>
             <LanguagesContainer $show={showLanguages}>
-                {languages.map(el => (
-                    <LanguageItem key={el} onClick={() => setCurrentLanguage(el)}>
-                        <LanguageName>{el}</LanguageName>
+                {languages.map(language => (
+                    <LanguageItem key={language} onClick={changeLanguageHandler.bind(null, language)}>
+                        <LanguageName>{language}</LanguageName>
                     </LanguageItem>
                 ))}
             </LanguagesContainer>

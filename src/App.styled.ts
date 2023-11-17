@@ -21,6 +21,7 @@ export const SectionTitle = styled.h2<{ $center?: boolean }>`
   letter-spacing: 0.18rem;
   z-index: 5;
   line-height: 1;
+  text-transform: uppercase;
   ${props => props.$center ?
           `text-align: center;` : 
             `max-width: 27.2rem;
@@ -34,6 +35,7 @@ export const SectionDescription = styled.p<{ $center?: boolean }>`
   font-size: 1.5rem;
   color: ${theme.color.white};
   font-family: ${theme.font.babes};
+  text-transform: uppercase;
   z-index: 5;
   ${props =>  props.$center ?
           `text-align: center;` :

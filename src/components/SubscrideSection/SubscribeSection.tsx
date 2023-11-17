@@ -12,8 +12,10 @@ import {
     SubscribeSectionBg,
     SubscribeSectionContent
 } from './SubscribeSection.styled';
+import {useTranslation} from 'react-i18next';
 
 const SubscribeSection: React.FC = () => {
+    const {t} = useTranslation();
     return (
         <SubscribeSectionBg>
             <SubscribeContainer>
@@ -21,18 +23,17 @@ const SubscribeSection: React.FC = () => {
                     <SubscribeImage src={image}/>
                 </SubscribeImageContainer>
                 <SubscribeSectionContent>
-                    <SectionDescription style={{marginBottom: '1rem'}}>Want to stay in touch?</SectionDescription>
-                    <SectionTitle>newsletter SUBSCRIBE </SectionTitle>
-                    <SectionText style={{marginBottom: '2rem'}}>In order to start receiving our news, all you have to do
-                        is enter your email address. Everything else will be taken care of by us. We will send you
-                        emails containing information about game. We don’t spam.</SectionText>
+                    <SectionDescription
+                        style={{marginBottom: '1rem'}}>{t('subscribeSectionDescription')}</SectionDescription>
+                    <SectionTitle>{t('subscribeSectionTitle')}</SectionTitle>
+                    <SectionText style={{marginBottom: '2rem'}}>{t('subscribeSectionText')}</SectionText>
                     <SubscribeInputContainer>
                         <InputFieldContainer>
                             <InputSubscribe type={'email'} id={'subscribe'} placeholder={' '}/>
-                            <SubscribeLabel htmlFor={'subscribe'}>Your email address</SubscribeLabel>
+                            <SubscribeLabel htmlFor={'subscribe'}>{t('subscribeSectionInputLabel')}</SubscribeLabel>
                         </InputFieldContainer>
                         <Button>
-                            <ButtonText>Subscribe now</ButtonText>
+                            <ButtonText>{t('subscribeSectionButtonText')}</ButtonText>
                         </Button>
                     </SubscribeInputContainer>
 

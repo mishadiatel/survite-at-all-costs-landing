@@ -14,7 +14,7 @@ export const theme = {
         mainSectionGradient: 'radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.81) 81%, rgba(8,9,10,1) 100%)',
     },
     font: {
-        babes: '\'Bebas Neue\', sans-serif',
+        babes: '\'Bebas Neue\', \'Teko\' , sans-serif',
         opensans: '\'Open Sans\', sans-serif'
 
     }

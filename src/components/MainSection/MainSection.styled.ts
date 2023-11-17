@@ -36,6 +36,7 @@ export const MainSectionBottomText = styled.span`
   line-height: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
   transition: color 0.3s ease;
   @media screen and (max-height: 413px) {
     font-size: 0.75rem;

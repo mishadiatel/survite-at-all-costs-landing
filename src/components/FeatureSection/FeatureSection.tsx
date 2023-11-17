@@ -4,8 +4,10 @@ import {SectionBg, SectionDescription, SectionTitle} from '../../App.styled';
 import {FeatureContainer, FeatureSectionBg, FeatureSectionContent} from './FeatureSection.styled';
 import FeaturesAccordion from './FeaturesAccordion';
 import {Element} from 'react-scroll';
+import {useTranslation} from 'react-i18next';
 
 const FeatureSection = () => {
+    const {t} = useTranslation();
     return (
         <Element name={'features'}>
             <SectionBg $backgroundImage={bg3}>
@@ -14,10 +16,10 @@ const FeatureSection = () => {
                 <FeatureContainer>
                     {/*<EmptyPlace />*/}
                     <FeatureSectionContent>
-
-                        <SectionDescription style={{marginBottom: '1rem'}}>What’s so special?</SectionDescription>
-                        <SectionTitle style={{marginBottom: '1.5rem'}}>features</SectionTitle>
-                        <FeaturesAccordion />
+                        <SectionDescription
+                            style={{marginBottom: '1rem'}}>{t('featuresSectionDescription')}</SectionDescription>
+                        <SectionTitle style={{marginBottom: '1.5rem'}}>{t('featuresSectionTitle')}</SectionTitle>
+                        <FeaturesAccordion/>
                     </FeatureSectionContent>
 
 
