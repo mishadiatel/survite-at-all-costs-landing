@@ -100,9 +100,9 @@ position: relative;
   justify-content: center;
   gap: 1rem;
   z-index: 1000;
-  &:hover svg {
-    transform: rotate(180deg);
-  }
+  //&:hover svg {
+  //  transform: rotate(180deg);
+  //}
 `
 export const LanguageName = styled.span`
   font-size: 1.25rem;
